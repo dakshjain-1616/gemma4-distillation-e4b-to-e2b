@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.sh
+.tmp/
+*.egg-info/
+dist/
+build/
+.DS_Store
+*.log
+venv/
+.venv/
+wandb/
+lightning_logs/

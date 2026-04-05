@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="monospace, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="400" rx="12" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="bold">Knowledge Distillation Pipeline — E4B (Teacher) → E2B (Student)</text>
+
+  <!-- ===================== TEACHER SIDE ===================== -->
+
+  <!-- Teacher label -->
+  <text x="210" y="62" text-anchor="middle" fill="#f78166" font-size="11" font-weight="bold" letter-spacing="1">TEACHER</text>
+
+  <!-- Box: GSM8K Input -->
+  <rect x="30" y="72" width="140" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="100" y="95" text-anchor="middle" fill="#79c0ff" font-size="11" font-weight="bold">GSM8K</text>
+  <text x="100" y="112" text-anchor="middle" fill="#e6edf3" font-size="10">Math problems</text>
+  <text x="100" y="127" text-anchor="middle" fill="#8b949e" font-size="9">50 training samples</text>
+
+  <!-- Arrow GSM8K → Teacher -->
+  <line x1="170" y1="107" x2="210" y2="107" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Box: Teacher Model -->
+  <rect x="210" y="72" width="165" height="70" rx="8" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+  <text x="292" y="95" text-anchor="middle" fill="#f78166" font-size="11" font-weight="bold">TEACHER MODEL</text>
+  <text x="292" y="112" text-anchor="middle" fill="#e6edf3" font-size="10">gemma-4-E4B-it</text>
+  <text x="292" y="127" text-anchor="middle" fill="#8b949e" font-size="9">bfloat16 · Frozen</text>
+
+  <!-- Arrow Teacher → CoT Traces -->
+  <line x1="375" y1="107" x2="415" y2="107" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Box: CoT Traces -->
+  <rect x="415" y="72" width="155" height="70" rx="8" fill="#161b22" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="492" y="92" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">CoT TRACES</text>
+  <text x="492" y="109" text-anchor="middle" fill="#e6edf3" font-size="10">50 reasoning chains</text>
+  <text x="492" y="124" text-anchor="middle" fill="#8b949e" font-size="9">+ teacher logits</text>
+  <text x="492" y="137" text-anchor="middle" fill="#8b949e" font-size="9">stored for training</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="175" x2="870" y2="175" stroke="#21262d" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===================== STUDENT SIDE ===================== -->
+
+  <!-- Student label -->
+  <text x="450" y="198" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="bold" letter-spacing="1">STUDENT TRAINING</text>
+
+  <!-- Box: Student Base Model -->
+  <rect x="30" y="210" width="165" height="80" rx="8" fill="#161b22" stroke="#8b949e" stroke-width="1.5"/>
+  <text x="112" y="233" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="bold">BASE STUDENT</text>
+  <text x="112" y="250" text-anchor="middle" fill="#e6edf3" font-size="10">gemma-4-E2B-it</text>
+  <text x="112" y="265" text-anchor="middle" fill="#8b949e" font-size="9">~2B params · Frozen</text>
+  <text x="112" y="279" text-anchor="middle" fill="#8b949e" font-size="9">base weights</text>
+
+  <!-- Box: LoRA on Student -->
+  <rect x="215" y="210" width="155" height="80" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="292" y="233" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="bold">LoRA ADAPTERS</text>
+  <text x="292" y="250" text-anchor="middle" fill="#e6edf3" font-size="10">r=16, alpha=32</text>
+  <text x="292" y="265" text-anchor="middle" fill="#8b949e" font-size="9">q/k/v/o_proj</text>
+  <text x="292" y="279" text-anchor="middle" fill="#8b949e" font-size="9">Trainable only</text>
+
+  <!-- Horizontal connector base → LoRA -->
+  <line x1="195" y1="250" x2="215" y2="250" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Arrow LoRA + CoT → Loss -->
+  <line x1="370" y1="250" x2="415" y2="250" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- CoT traces feed down into loss box -->
+  <line x1="492" y1="142" x2="492" y2="210" stroke="#e3b341" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-gold)"/>
+
+  <!-- Box: Loss Function -->
+  <rect x="415" y="210" width="175" height="80" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="2"/>
+  <text x="502" y="232" text-anchor="middle" fill="#d2a8ff" font-size="11" font-weight="bold">LOSS FUNCTION</text>
+  <text x="502" y="249" text-anchor="middle" fill="#e6edf3" font-size="10">KL divergence</text>
+  <text x="502" y="264" text-anchor="middle" fill="#8b949e" font-size="9">(student vs teacher logits)</text>
+  <text x="502" y="279" text-anchor="middle" fill="#e6edf3" font-size="10">+ Cross-entropy</text>
+  <text x="502" y="286" text-anchor="middle" fill="#8b949e" font-size="9">(final answer tokens)</text>
+
+  <!-- Arrow Loss → Checkpoint -->
+  <line x1="590" y1="250" x2="630" y2="250" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Box: Output / Checkpoint -->
+  <rect x="630" y="210" width="180" height="80" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="720" y="233" text-anchor="middle" fill="#58a6ff" font-size="11" font-weight="bold">OUTPUT</text>
+  <text x="720" y="250" text-anchor="middle" fill="#e6edf3" font-size="10">Distilled LoRA adapter</text>
+  <text x="720" y="265" text-anchor="middle" fill="#8b949e" font-size="9">checkpoint + HF export</text>
+  <text x="720" y="280" text-anchor="middle" fill="#8b949e" font-size="9">gemma-e2b-distilled-lora/</text>
+
+  <!-- ===================== EVAL BAR ===================== -->
+  <rect x="30" y="315" width="780" height="55" rx="8" fill="#161b22" stroke="#e3b341" stroke-width="1.5"/>
+  <text x="420" y="337" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">EVALUATION</text>
+  <text x="200" y="356" text-anchor="middle" fill="#e6edf3" font-size="10">Accuracy on 20 GSM8K test samples</text>
+  <text x="540" y="356" text-anchor="middle" fill="#e6edf3" font-size="10">BLEU score vs teacher CoT traces</text>
+  <text x="420" y="373" text-anchor="middle" fill="#484f58" font-size="9">Results pending — training in progress</text>
+
+  <!-- Arrow defs -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e3b341"/>
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="450" y="393" text-anchor="middle" fill="#484f58" font-size="9">Built with NEO — heyneo.so</text>
+</svg>
