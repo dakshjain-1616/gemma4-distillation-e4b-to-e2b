@@ -1,6 +1,8 @@
 # Knowledge Distillation — gemma-4-E4B-it → gemma-4-E2B-it
 
 [![Built with NEO](https://img.shields.io/badge/Built%20with-NEO%20AI%20Agent-6f42c1?style=for-the-badge)](https://heyneo.so)
+
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-gemma4--distillation--e4b--to--e2b-yellow?style=for-the-badge)](https://huggingface.co/daksh-neo/gemma4-distillation-e4b-to-e2b)
 [![NEO VS Code](https://img.shields.io/visual-studio-marketplace/v/NeoResearchInc.heyneo?style=for-the-badge&label=NEO%20VS%20Code)](https://marketplace.visualstudio.com/items?itemName=NeoResearchInc.heyneo)
 
 > This project was autonomously built using **NEO** — Your autonomous AI Agent. [Try NEO →](https://heyneo.so)
