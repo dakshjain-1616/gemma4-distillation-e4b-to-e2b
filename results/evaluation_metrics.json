@@ -1,0 +1,20 @@
+{
+  "model": "google/gemma-4-E2B-it (distilled from google/gemma-4-E4B-it)",
+  "n_test_samples": 20,
+  "accuracy": 0.0,
+  "correct": 0,
+  "avg_bleu_vs_teacher": 0.20234848660741772,
+  "teacher_model": "google/gemma-4-E4B-it",
+  "student_model": "google/gemma-4-E2B-it",
+  "training_traces": 1000,
+  "epochs_completed": 12,
+  "epochs_planned": 30,
+  "global_step": 1500,
+  "final_train_loss": 1.4002,
+  "training_interrupted": true,
+  "interruption_reason": "disk_full_at_step_1625",
+  "best_checkpoint": "checkpoint-1500",
+  "key_finding": "Teacher model (gemma-4-E4B-it) generated degenerate CoT traces (single-line answers, repeated tokens). Student learned to mimic the template but not actual reasoning. CoT trace quality is critical for distillation.",
+  "hardware": "CUDA GPU, bfloat16",
+  "distillation_method": "Behavioral cloning on teacher CoT traces (full fine-tuning, no LoRA - PEFT incompatible with Gemma4ClippableLinear)"
+}

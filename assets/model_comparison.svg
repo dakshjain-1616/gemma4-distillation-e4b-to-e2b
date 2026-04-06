@@ -64,12 +64,12 @@
   <rect x="590" y="101" width="74" height="20" rx="5" fill="#238636" opacity="0.3"/>
   <text x="627" y="115" text-anchor="middle" class="font-base" font-size="11" font-weight="700" fill="#3fb950">2B params</text>
 
-  <!-- Quant -->
-  <text x="428" y="142" class="font-base" font-size="11" fill="#8b949e">Quantization</text>
-  <text x="664" y="142" text-anchor="end" class="font-base" font-size="11" fill="#f0f6fc">4-bit NF4 + LoRA</text>
+  <!-- Fine-tune method -->
+  <text x="428" y="142" class="font-base" font-size="11" fill="#8b949e">Fine-tune</text>
+  <text x="664" y="142" text-anchor="end" class="font-base" font-size="11" fill="#f0f6fc">Full (PEFT incompatible)</text>
 
   <!-- Role -->
-  <text x="428" y="168" class="font-base" font-size="11" fill="#8b949e">Role</text>
+  <text x="428" y="168" class="font-base" font-size="11" fill="#8b949e">GSM8K Acc.</text>
   <rect x="496" y="153" width="168" height="20" rx="5" fill="#1a0f2e"/>
-  <text x="580" y="167" text-anchor="middle" class="font-base" font-size="10" font-weight="600" fill="#bf91f9">Learning from Teacher</text>
+  <text x="580" y="167" text-anchor="middle" class="font-base" font-size="10" font-weight="600" fill="#da3633">0% — degenerate CoT traces</text>
 </svg>

@@ -3,9 +3,6 @@
     <style>
       .font-base { font-family: 'Segoe UI', system-ui, sans-serif; }
     </style>
-    <pattern id="stripesD" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="10" height="20" fill="#6f42c1" opacity="0.3"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
@@ -16,41 +13,41 @@
 
   <!-- Progress bar section -->
   <text x="24" y="50" class="font-base" font-size="12" fill="#8b949e">Overall Progress</text>
-  <text x="676" y="50" text-anchor="end" class="font-base" font-size="12" font-weight="700" fill="#d29922">0%  ⏳</text>
+  <text x="676" y="50" text-anchor="end" class="font-base" font-size="12" font-weight="700" fill="#3fb950">100% ✓</text>
   <!-- Bar track -->
   <rect x="24" y="56" width="652" height="14" rx="7" fill="#21262d"/>
-  <!-- Striped bar -->
-  <rect x="24" y="56" width="652" height="14" rx="7" fill="url(#stripesD)"/>
-  <rect x="24" y="56" width="8" height="14" rx="4" fill="#6f42c1" opacity="0.8"/>
+  <!-- Filled bar -->
+  <rect x="24" y="56" width="652" height="14" rx="7" fill="#238636" opacity="0.9"/>
 
-  <!-- 4 status rows — 26px each, starting at y=82 -->
-  <!-- Row 1: CoT Trace Generation — RUNNING -->
-  <rect x="24" y="78" width="652" height="25" rx="5" fill="#1c1408" stroke="#d29922" stroke-width="1"/>
-  <text x="42" y="95" class="font-base" font-size="12" fill="#d29922">⏳</text>
+  <!-- Row 1: CoT Trace Generation — DONE -->
+  <rect x="24" y="78" width="652" height="25" rx="5" fill="#0a1f0a" stroke="#238636" stroke-width="1"/>
+  <text x="42" y="95" class="font-base" font-size="12" fill="#3fb950">✓</text>
   <text x="64" y="95" class="font-base" font-size="12" font-weight="600" fill="#f0f6fc">CoT Trace Generation</text>
-  <rect x="524" y="82" width="136" height="18" rx="5" fill="#d29922" opacity="0.2"/>
-  <text x="592" y="95" text-anchor="middle" class="font-base" font-size="11" font-weight="600" fill="#d29922">RUNNING...</text>
+  <text x="300" y="95" class="font-base" font-size="11" fill="#8b949e">1,000 traces from gemma-4-E4B-it on GSM8K</text>
+  <rect x="524" y="82" width="136" height="18" rx="5" fill="#238636" opacity="0.3"/>
+  <text x="592" y="95" text-anchor="middle" class="font-base" font-size="11" font-weight="600" fill="#3fb950">COMPLETE</text>
 
-  <!-- Row 2: Student Training — PENDING -->
-  <rect x="24" y="108" width="652" height="25" rx="5" fill="#161b22"/>
-  <text x="42" y="125" class="font-base" font-size="12" fill="#8b949e">⏳</text>
-  <text x="64" y="125" class="font-base" font-size="12" fill="#8b949e">Student Training</text>
-  <rect x="524" y="112" width="136" height="18" rx="5" fill="#21262d"/>
-  <text x="592" y="125" text-anchor="middle" class="font-base" font-size="11" fill="#8b949e">PENDING</text>
+  <!-- Row 2: Student Training — DONE (partial) -->
+  <rect x="24" y="108" width="652" height="25" rx="5" fill="#0a1f0a" stroke="#f0883e" stroke-width="1"/>
+  <text x="42" y="125" class="font-base" font-size="12" fill="#f0883e">⚠</text>
+  <text x="64" y="125" class="font-base" font-size="12" font-weight="600" fill="#f0f6fc">Student Training (Full Fine-tune)</text>
+  <text x="370" y="125" class="font-base" font-size="11" fill="#8b949e">12/30 epochs · step 1500</text>
+  <rect x="524" y="112" width="136" height="18" rx="5" fill="#f0883e" opacity="0.2"/>
+  <text x="592" y="125" text-anchor="middle" class="font-base" font-size="11" font-weight="600" fill="#f0883e">INTERRUPTED</text>
 
-  <!-- Row 3: GSM8K Evaluation — PENDING -->
-  <rect x="24" y="138" width="652" height="25" rx="5" fill="#161b22"/>
-  <text x="42" y="155" class="font-base" font-size="12" fill="#8b949e">⏳</text>
-  <text x="64" y="155" class="font-base" font-size="12" fill="#8b949e">GSM8K Evaluation</text>
-  <rect x="524" y="142" width="136" height="18" rx="5" fill="#21262d"/>
-  <text x="592" y="155" text-anchor="middle" class="font-base" font-size="11" fill="#8b949e">PENDING</text>
+  <!-- Row 3: GSM8K Evaluation — DONE -->
+  <rect x="24" y="138" width="652" height="25" rx="5" fill="#0a1f0a" stroke="#238636" stroke-width="1"/>
+  <text x="42" y="155" class="font-base" font-size="12" fill="#3fb950">✓</text>
+  <text x="64" y="155" class="font-base" font-size="12" font-weight="600" fill="#f0f6fc">GSM8K Evaluation</text>
+  <text x="260" y="155" class="font-base" font-size="11" fill="#8b949e">20 samples · accuracy 0% · BLEU 0.202 · degenerate traces</text>
+  <rect x="524" y="142" width="136" height="18" rx="5" fill="#238636" opacity="0.3"/>
+  <text x="592" y="155" text-anchor="middle" class="font-base" font-size="11" font-weight="600" fill="#3fb950">COMPLETE</text>
 
-  <!-- Row 4: Report Generation — PENDING -->
-  <rect x="24" y="168" width="652" height="25" rx="5" fill="#161b22"/>
-  <text x="42" y="185" class="font-base" font-size="12" fill="#8b949e">⏳</text>
-  <text x="64" y="185" class="font-base" font-size="12" fill="#8b949e">Report Generation</text>
-  <rect x="524" y="172" width="136" height="18" rx="5" fill="#21262d"/>
-  <text x="592" y="185" text-anchor="middle" class="font-base" font-size="11" fill="#8b949e">PENDING</text>
-
-  <!-- The 4 rows fill to y≈193, footnote will ride in the very last pixel row via a separate bar -->
+  <!-- Row 4: Report Generation — DONE -->
+  <rect x="24" y="168" width="652" height="25" rx="5" fill="#0a1f0a" stroke="#238636" stroke-width="1"/>
+  <text x="42" y="185" class="font-base" font-size="12" fill="#3fb950">✓</text>
+  <text x="64" y="185" class="font-base" font-size="12" font-weight="600" fill="#f0f6fc">Report &amp; HF Upload</text>
+  <text x="280" y="185" class="font-base" font-size="11" fill="#8b949e">daksh-neo/gemma4-distillation-e4b-to-e2b</text>
+  <rect x="524" y="172" width="136" height="18" rx="5" fill="#238636" opacity="0.3"/>
+  <text x="592" y="185" text-anchor="middle" class="font-base" font-size="11" font-weight="600" fill="#3fb950">COMPLETE</text>
 </svg>

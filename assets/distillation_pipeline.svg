@@ -32,8 +32,8 @@
   <!-- Box: CoT Traces -->
   <rect x="415" y="72" width="155" height="70" rx="8" fill="#161b22" stroke="#e3b341" stroke-width="1.5"/>
   <text x="492" y="92" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">CoT TRACES</text>
-  <text x="492" y="109" text-anchor="middle" fill="#e6edf3" font-size="10">50 reasoning chains</text>
-  <text x="492" y="124" text-anchor="middle" fill="#8b949e" font-size="9">+ teacher logits</text>
+  <text x="492" y="109" text-anchor="middle" fill="#e6edf3" font-size="10">1,000 reasoning chains</text>
+  <text x="492" y="124" text-anchor="middle" fill="#f0883e" font-size="9">⚠ degenerate quality</text>
   <text x="492" y="137" text-anchor="middle" fill="#8b949e" font-size="9">stored for training</text>
 
   <!-- Divider -->
@@ -51,12 +51,12 @@
   <text x="112" y="265" text-anchor="middle" fill="#8b949e" font-size="9">~2B params · Frozen</text>
   <text x="112" y="279" text-anchor="middle" fill="#8b949e" font-size="9">base weights</text>
 
-  <!-- Box: LoRA on Student -->
+  <!-- Box: Full Fine-tune -->
   <rect x="215" y="210" width="155" height="80" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
-  <text x="292" y="233" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="bold">LoRA ADAPTERS</text>
-  <text x="292" y="250" text-anchor="middle" fill="#e6edf3" font-size="10">r=16, alpha=32</text>
-  <text x="292" y="265" text-anchor="middle" fill="#8b949e" font-size="9">q/k/v/o_proj</text>
-  <text x="292" y="279" text-anchor="middle" fill="#8b949e" font-size="9">Trainable only</text>
+  <text x="292" y="233" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="bold">FULL FINE-TUNE</text>
+  <text x="292" y="250" text-anchor="middle" fill="#e6edf3" font-size="10">All parameters</text>
+  <text x="292" y="265" text-anchor="middle" fill="#8b949e" font-size="9">PEFT incompatible</text>
+  <text x="292" y="279" text-anchor="middle" fill="#8b949e" font-size="9">with Gemma4</text>
 
   <!-- Horizontal connector base → LoRA -->
   <line x1="195" y1="250" x2="215" y2="250" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4,3"/>
@@ -90,7 +90,8 @@
   <text x="420" y="337" text-anchor="middle" fill="#e3b341" font-size="11" font-weight="bold">EVALUATION</text>
   <text x="200" y="356" text-anchor="middle" fill="#e6edf3" font-size="10">Accuracy on 20 GSM8K test samples</text>
   <text x="540" y="356" text-anchor="middle" fill="#e6edf3" font-size="10">BLEU score vs teacher CoT traces</text>
-  <text x="420" y="373" text-anchor="middle" fill="#484f58" font-size="9">Results pending — training in progress</text>
+  <text x="200" y="373" text-anchor="middle" fill="#e6edf3" font-size="10" font-weight="bold">0% accuracy</text>
+  <text x="540" y="373" text-anchor="middle" fill="#e6edf3" font-size="10" font-weight="bold">BLEU 0.202</text>
 
   <!-- Arrow defs -->
   <defs>

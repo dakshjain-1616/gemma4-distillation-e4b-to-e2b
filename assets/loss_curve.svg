@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300">
+  <defs>
+    <style>.font-base { font-family: 'Segoe UI', system-ui, sans-serif; }</style>
+  </defs>
+  <rect width="860" height="300" fill="#0d1117" rx="8"/>
+  <text x="430" y="20" text-anchor="middle" class="font-base" font-size="11" fill="#8b949e" letter-spacing="0.08em">TRAINING LOSS CURVE — gemma-4-E2B-it DISTILLATION (12 epochs · 1500 steps)</text>
+  <line x1="70" y1="250.0" x2="830" y2="250.0" stroke="#21262d" stroke-width="1"/>
+<text x="62" y="254.0" fill="#8b949e" font-size="9" text-anchor="end">0</text>
+<line x1="70" y1="195.0" x2="830" y2="195.0" stroke="#21262d" stroke-width="1"/>
+<text x="62" y="199.0" fill="#8b949e" font-size="9" text-anchor="end">5</text>
+<line x1="70" y1="140.0" x2="830" y2="140.0" stroke="#21262d" stroke-width="1"/>
+<text x="62" y="144.0" fill="#8b949e" font-size="9" text-anchor="end">10</text>
+<line x1="70" y1="85.0" x2="830" y2="85.0" stroke="#21262d" stroke-width="1"/>
+<text x="62" y="89.0" fill="#8b949e" font-size="9" text-anchor="end">15</text>
+<line x1="70" y1="30.0" x2="830" y2="30.0" stroke="#21262d" stroke-width="1"/>
+<text x="62" y="34.0" fill="#8b949e" font-size="9" text-anchor="end">20</text>
+
+  <text x="70.0" y="266" fill="#8b949e" font-size="9" text-anchor="middle">0</text>
+<line x1="70.0" y1="30" x2="70.0" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="200.6" y="266" fill="#8b949e" font-size="9" text-anchor="middle">250</text>
+<line x1="200.6" y1="30" x2="200.6" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="331.2" y="266" fill="#8b949e" font-size="9" text-anchor="middle">500</text>
+<line x1="331.2" y1="30" x2="331.2" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="461.8" y="266" fill="#8b949e" font-size="9" text-anchor="middle">750</text>
+<line x1="461.8" y1="30" x2="461.8" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="592.3" y="266" fill="#8b949e" font-size="9" text-anchor="middle">1000</text>
+<line x1="592.3" y1="30" x2="592.3" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="722.9" y="266" fill="#8b949e" font-size="9" text-anchor="middle">1250</text>
+<line x1="722.9" y1="30" x2="722.9" y2="250" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+
+  <!-- Axes -->
+  <line x1="70" y1="30" x2="70" y2="250" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="70" y1="250" x2="830" y2="250" stroke="#30363d" stroke-width="1.5"/>
+  <!-- Loss curve -->
+  <polyline points="72.6,30.0 98.7,60.6 124.8,102.5 151.0,95.0 177.1,125.5 203.2,154.1 229.3,153.9 255.4,158.3 281.5,184.6 307.7,160.5 333.8,186.1 359.9,180.6 386.0,191.0 412.1,196.9 438.2,195.9 464.4,205.8 490.5,207.8 516.6,204.7 542.7,212.7 568.8,216.6 594.9,220.6 621.1,224.4 647.2,221.4 673.3,230.3 699.4,230.0 725.5,231.8 751.6,231.1 777.8,231.0 803.9,235.3 830.0,236.8" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Final annotation -->
+  <circle cx="830.0" cy="236.8" r="4" fill="#3fb950"/>
+  <text x="825.0" y="226.8" class="font-base" font-size="10" fill="#3fb950" text-anchor="end">loss=1.204</text>
+  <!-- Axis labels -->
+  <text x="450" y="298" text-anchor="middle" class="font-base" font-size="10" fill="#8b949e">Training Step</text>
+  <text x="12" y="140" text-anchor="middle" class="font-base" font-size="10" fill="#8b949e" transform="rotate(-90, 12, 140)">Loss (capped at 20)</text>
+  <!-- Note: first point capped -->
+  <text x="76.6" y="42" class="font-base" font-size="9" fill="#f0883e">step 5: 54.3 (capped)</text>
+  <!-- Footer -->
+  <text x="430" y="296" text-anchor="middle" class="font-base" font-size="9" fill="#484f58">Built with NEO — heyneo.so</text>
+</svg>
