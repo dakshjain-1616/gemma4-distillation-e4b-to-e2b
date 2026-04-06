@@ -1,0 +1,14 @@
+{
+  "version": "v2",
+  "model": "google/gemma-4-E2B-it distilled from qwen/qwen3.6-plus:free (OpenRouter)",
+  "n_test_samples": 20,
+  "accuracy": 0.1,
+  "correct": 2,
+  "avg_bleu": 0.3286297145615755,
+  "teacher_model": "qwen/qwen3.6-plus:free (OpenRouter)",
+  "student_model": "google/gemma-4-E2B-it",
+  "training_traces": 500,
+  "epochs_completed": 5,
+  "distillation_fix": "Proper chat-formatted prompts + trace quality filtering",
+  "key_change_from_v1": "Teacher switched from gemma-4-E4B-it (degenerate traces) to qwen3-plus (real CoT reasoning)"
+}
