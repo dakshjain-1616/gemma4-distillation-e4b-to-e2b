@@ -1,100 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="320" viewBox="0 0 700 320">
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="380" viewBox="0 0 700 380">
   <defs>
     <style>.mono { font-family: 'Courier New', Courier, monospace; }</style>
   </defs>
 
   <!-- Background -->
-  <rect width="700" height="320" rx="10" fill="#0d1117"/>
+  <rect width="700" height="380" rx="10" fill="#0d1117"/>
 
   <!-- Title -->
-  <text x="350" y="22" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="#f0f6fc">v1 vs v2 — Knowledge Distillation Comparison</text>
-  <text x="350" y="38" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Switching teacher from gemma-4-E4B-it (local) to qwen/qwen3.6-plus (OpenRouter API)</text>
+  <text x="350" y="24" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="#f0f6fc">v1 vs v2 — Knowledge Distillation Comparison</text>
+  <text x="350" y="40" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Teacher switch: gemma-4-E4B-it (local, no template) → qwen/qwen3.6-plus (OpenRouter API)</text>
 
-  <!-- Legend -->
-  <rect x="200" y="48" width="12" height="12" rx="2" fill="#da3633"/>
-  <text x="216" y="59" class="mono" font-size="10" fill="#da3633">v1 (E4B teacher — degenerate traces)</text>
-  <rect x="430" y="48" width="12" height="12" rx="2" fill="#238636"/>
-  <text x="446" y="59" class="mono" font-size="10" fill="#3fb950">v2 (Qwen3.6-plus — real CoT)</text>
+  <!-- Legend (y=52..68) -->
+  <rect x="160" y="52" width="12" height="12" rx="2" fill="#da3633"/>
+  <text x="176" y="63" class="mono" font-size="10" fill="#da3633">v1 — E4B local teacher (degenerate traces)</text>
+  <rect x="430" y="52" width="12" height="12" rx="2" fill="#238636"/>
+  <text x="446" y="63" class="mono" font-size="10" fill="#3fb950">v2 — Qwen3.6-plus API (real CoT)</text>
 
-  <!-- ── GROUP 1: Accuracy ── -->
-  <!-- Centered at x=175, chart area y=75..225, height=150 -->
-  <text x="175" y="73" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">GSM8K ACCURACY</text>
-  <line x1="80" y1="225" x2="270" y2="225" stroke="#30363d" stroke-width="1"/>
-  <line x1="80" y1="75"  x2="270" y2="75"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- ─────────────────────────────────────────── -->
+  <!-- Chart area: y=82..245 (height=163)          -->
+  <!-- Three groups centered at x=155, 350, 545    -->
+  <!-- Each group uses 175px wide zone             -->
+  <!-- ─────────────────────────────────────────── -->
 
-  <!-- Y axis labels -->
-  <text x="72" y="229" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0%</text>
-  <text x="72" y="154" text-anchor="end" class="mono" font-size="9" fill="#8b949e">5%</text>
-  <text x="72" y="79"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">10%</text>
-  <line x1="80" y1="150" x2="270" y2="150" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- GROUP 1: GSM8K ACCURACY ── centered x=155, zone x=68..242 -->
+  <text x="155" y="80" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">GSM8K ACCURACY</text>
 
-  <!-- v1 bar: 0% → height=0, just a flat line -->
-  <rect x="105" y="224" width="45" height="1" rx="1" fill="#da3633"/>
-  <text x="127" y="214" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">0%</text>
-  <text x="127" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
+  <!-- Y axis for G1: x=68..242 -->
+  <line x1="68" y1="245" x2="242" y2="245" stroke="#30363d" stroke-width="1"/>
+  <line x1="68" y1="245" x2="68"  y2="82"  stroke="#30363d" stroke-width="1"/>
+  <line x1="68" y1="163" x2="242" y2="163" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="68" y1="82"  x2="242" y2="82"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <!-- v2 bar: 10% → height=150 (full) -->
-  <rect x="200" y="75" width="45" height="150" rx="4" fill="#238636" opacity="0.85"/>
-  <text x="222" y="67" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">10%</text>
-  <text x="222" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
+  <!-- Y labels (0%, 5%, 10%) -->
+  <text x="62" y="249" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0%</text>
+  <text x="62" y="167" text-anchor="end" class="mono" font-size="9" fill="#8b949e">5%</text>
+  <text x="62" y="86"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">10%</text>
 
-  <!-- Improvement badge -->
-  <text x="175" y="260" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+10pp improvement</text>
+  <!-- v1 bar: 0% → just a stub at baseline -->
+  <rect x="98" y="244" width="46" height="1" fill="#da3633"/>
+  <text x="121" y="235" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">0%</text>
+  <text x="121" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
 
-  <!-- ── GROUP 2: BLEU ── -->
-  <!-- Centered at x=350 -->
-  <text x="350" y="73" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">AVG BLEU SCORE</text>
-  <line x1="255" y1="225" x2="445" y2="225" stroke="#30363d" stroke-width="1"/>
-  <line x1="255" y1="75"  x2="445" y2="75"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- v2 bar: 10% → height=163, y=82 -->
+  <rect x="186" y="82" width="46" height="163" rx="4" fill="#238636" opacity="0.85"/>
+  <text x="209" y="74" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">10%</text>
+  <text x="209" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
 
-  <!-- Y axis labels (scale 0..0.40, 150px height → 375px per unit) -->
-  <text x="247" y="229" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.00</text>
-  <text x="247" y="154" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.20</text>
-  <text x="247" y="79"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.40</text>
-  <line x1="255" y1="150" x2="445" y2="150" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- badge -->
+  <text x="155" y="278" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+10pp</text>
 
-  <!-- v1 bar: 0.202 → height=0.202*375=75.75→76, y=225-76=149 -->
-  <rect x="280" y="149" width="45" height="76" rx="4" fill="#da3633" opacity="0.7"/>
-  <text x="302" y="141" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">0.202</text>
-  <text x="302" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
+  <!-- GROUP 2: AVG BLEU ── centered x=350, zone x=258..442 -->
+  <text x="350" y="80" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">AVG BLEU SCORE</text>
 
-  <!-- v2 bar: 0.329 → height=0.329*375=123.4→123, y=225-123=102 -->
-  <rect x="375" y="102" width="45" height="123" rx="4" fill="#238636" opacity="0.85"/>
-  <text x="397" y="94" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">0.329</text>
-  <text x="397" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
+  <line x1="258" y1="245" x2="442" y2="245" stroke="#30363d" stroke-width="1"/>
+  <line x1="258" y1="245" x2="258" y2="82"  stroke="#30363d" stroke-width="1"/>
+  <!-- scale 0..0.40, h=163 → 407.5px/unit -->
+  <line x1="258" y1="163" x2="442" y2="163" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="258" y1="82"  x2="442" y2="82"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <!-- Improvement badge -->
-  <text x="350" y="260" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+62.9% improvement</text>
+  <text x="252" y="249" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.00</text>
+  <text x="252" y="167" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.20</text>
+  <text x="252" y="86"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">0.40</text>
 
-  <!-- ── GROUP 3: Trace Quality ── -->
-  <!-- Centered at x=525 -->
-  <text x="525" y="73" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">VALID TRACE RATE</text>
-  <line x1="430" y1="225" x2="620" y2="225" stroke="#30363d" stroke-width="1"/>
-  <line x1="430" y1="75"  x2="620" y2="75"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- v1 bar: 0.202 → h=0.202*407.5=82.3→82, y=245-82=163 -->
+  <rect x="286" y="163" width="46" height="82" rx="4" fill="#da3633" opacity="0.7"/>
+  <text x="309" y="155" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">0.202</text>
+  <text x="309" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
 
-  <!-- Y axis labels (scale 0..100%) -->
-  <text x="422" y="229" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0%</text>
-  <text x="422" y="154" text-anchor="end" class="mono" font-size="9" fill="#8b949e">50%</text>
-  <text x="422" y="79"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">100%</text>
-  <line x1="430" y1="150" x2="620" y2="150" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- v2 bar: 0.329 → h=0.329*407.5=134.1→134, y=245-134=111 -->
+  <rect x="368" y="111" width="46" height="134" rx="4" fill="#238636" opacity="0.85"/>
+  <text x="391" y="103" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">0.329</text>
+  <text x="391" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
 
-  <!-- v1 bar: ~30% → height=0.30*150=45, y=225-45=180 -->
-  <rect x="455" y="180" width="45" height="45" rx="4" fill="#da3633" opacity="0.7"/>
-  <text x="477" y="172" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">~30%</text>
-  <text x="477" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
+  <!-- badge -->
+  <text x="350" y="278" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+62.9%</text>
 
-  <!-- v2 bar: 96.5% → height=0.965*150=144.75→145, y=225-145=80 -->
-  <rect x="550" y="80" width="45" height="145" rx="4" fill="#238636" opacity="0.85"/>
-  <text x="572" y="72" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">96.5%</text>
-  <text x="572" y="243" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
+  <!-- GROUP 3: VALID TRACE RATE ── centered x=545, zone x=453..637 -->
+  <text x="545" y="80" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">VALID TRACE RATE</text>
 
-  <!-- Improvement badge -->
-  <text x="525" y="260" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+222% improvement</text>
+  <line x1="453" y1="245" x2="637" y2="245" stroke="#30363d" stroke-width="1"/>
+  <line x1="453" y1="245" x2="453" y2="82"  stroke="#30363d" stroke-width="1"/>
+  <line x1="453" y1="163" x2="637" y2="163" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="453" y1="82"  x2="637" y2="82"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <!-- Bottom summary bar -->
-  <rect x="20" y="276" width="660" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-  <text x="30" y="292" class="mono" font-size="9" fill="#da3633">v1 root cause:</text>
-  <text x="118" y="292" class="mono" font-size="9" fill="#8b949e">gemma-4-E4B-it prompted without chat template → format collapse → student learned degenerate template</text>
-  <text x="30" y="306" class="mono" font-size="9" fill="#3fb950">v2 fix:      </text>
-  <text x="118" y="306" class="mono" font-size="9" fill="#8b949e">qwen3.6-plus via OpenRouter · proper system prompt + 2-shot examples → 193/200 valid traces</text>
+  <text x="447" y="249" text-anchor="end" class="mono" font-size="9" fill="#8b949e">0%</text>
+  <text x="447" y="167" text-anchor="end" class="mono" font-size="9" fill="#8b949e">50%</text>
+  <text x="447" y="86"  text-anchor="end" class="mono" font-size="9" fill="#8b949e">100%</text>
+
+  <!-- v1 bar: ~30% → h=0.30*163=48.9→49, y=245-49=196 -->
+  <rect x="481" y="196" width="46" height="49" rx="4" fill="#da3633" opacity="0.7"/>
+  <text x="504" y="188" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#da3633">~30%</text>
+  <text x="504" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v1</text>
+
+  <!-- v2 bar: 96.5% → h=0.965*163=157.2→157, y=245-157=88 -->
+  <rect x="567" y="88" width="46" height="157" rx="4" fill="#238636" opacity="0.85"/>
+  <text x="590" y="80" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#3fb950">96.5%</text>
+  <text x="590" y="261" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">v2</text>
+
+  <!-- badge -->
+  <text x="545" y="278" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">+222%</text>
+
+  <!-- ── Bottom summary (y=295..370, height=75) ── -->
+  <rect x="20" y="295" width="660" height="75" rx="7" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+  <!-- v1 row -->
+  <rect x="32" y="308" width="8" height="8" rx="1" fill="#da3633"/>
+  <text x="44" y="317" class="mono" font-size="9" font-weight="700" fill="#da3633">v1 root cause</text>
+  <text x="44" y="331" class="mono" font-size="9" fill="#8b949e">gemma-4-E4B-it prompted as raw text (no chat template)</text>
+  <text x="44" y="344" class="mono" font-size="9" fill="#8b949e">→ format collapse → student learned degenerate "The answer is: 1." template</text>
+
+  <!-- divider -->
+  <line x1="32" y1="352" x2="668" y2="352" stroke="#21262d" stroke-width="1"/>
+
+  <!-- v2 row -->
+  <rect x="32" y="358" width="8" height="8" rx="1" fill="#238636"/>
+  <text x="44" y="367" class="mono" font-size="9" font-weight="700" fill="#3fb950">v2 fix</text>
+  <text x="100" y="367" class="mono" font-size="9" fill="#8b949e">qwen3.6-plus via OpenRouter + system prompt + 2-shot examples → 96.5% valid traces</text>
 </svg>

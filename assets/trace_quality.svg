@@ -1,91 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="260" viewBox="0 0 700 260">
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="300" viewBox="0 0 700 300">
   <defs>
     <style>.mono { font-family: 'Courier New', Courier, monospace; }</style>
   </defs>
 
   <!-- Background -->
-  <rect width="700" height="260" rx="10" fill="#0d1117"/>
+  <rect width="700" height="300" rx="10" fill="#0d1117"/>
 
   <!-- Title -->
   <text x="350" y="22" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#f0f6fc">CoT Trace Quality — qwen/qwen3.6-plus Teacher (v2)</text>
-  <text x="350" y="37" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">200 GSM8K problems → trace generation → quality filtering → 193 training examples</text>
+  <text x="350" y="38" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">200 GSM8K problems → trace generation → quality filtering → 193 training examples</text>
 
-  <!-- ── LEFT: Validity donut-style breakdown ── -->
-  <!-- Valid: 193/200 = 96.5% -->
-  <!-- Progress bar style -->
-  <text x="175" y="65" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">TRACE VALIDITY</text>
+  <!-- ── LEFT: Validity breakdown (x=20..330) ── -->
+  <text x="175" y="58" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">TRACE VALIDITY</text>
 
-  <!-- Outer bar (200 wide, bg) -->
-  <rect x="50" y="72" width="250" height="24" rx="6" fill="#21262d"/>
-  <!-- Valid fill: 96.5% = 241px -->
-  <rect x="50" y="72" width="241" height="24" rx="6" fill="#238636" opacity="0.9"/>
-  <!-- Invalid fill: 3.5% = 9px -->
-  <rect x="291" y="72" width="9" height="24" rx="0" fill="#da3633" opacity="0.9"/>
+  <!-- Background track -->
+  <rect x="30" y="66" width="290" height="22" rx="6" fill="#21262d"/>
+  <!-- Valid fill: 96.5% of 290 = 280px -->
+  <rect x="30" y="66" width="280" height="22" rx="6" fill="#238636" opacity="0.9"/>
+  <!-- Invalid cap: remaining 10px (keep green rx already shows edge) -->
 
-  <text x="175" y="89" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#f0f6fc">193 valid / 7 invalid</text>
+  <text x="175" y="82" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#f0f6fc">193 valid / 7 invalid</text>
 
-  <!-- Labels -->
-  <text x="56" y="108" class="mono" font-size="9" fill="#3fb950">96.5% valid</text>
-  <text x="270" y="108" text-anchor="end" class="mono" font-size="9" fill="#da3633">3.5%</text>
+  <!-- Labels below bar -->
+  <text x="36"  y="100" class="mono" font-size="9" fill="#3fb950">96.5% valid (193)</text>
+  <text x="320" y="100" text-anchor="end" class="mono" font-size="9" fill="#da3633">3.5% (7)</text>
 
-  <!-- Filter criteria -->
-  <text x="175" y="125" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Filter: &gt;25 words + numeric answer + &lt;30% repeated lines</text>
+  <!-- Filter criteria box -->
+  <rect x="30" y="110" width="290" height="42" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="175" y="126" text-anchor="middle" class="mono" font-size="9" font-weight="700" fill="#8b949e">FILTER CRITERIA</text>
+  <text x="175" y="141" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">&gt;25 words  ·  numeric answer  ·  &lt;30% repeated lines</text>
 
-  <!-- ── RIGHT: Word count stats ── -->
-  <text x="525" y="65" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">WORD COUNT DISTRIBUTION</text>
+  <!-- ── RIGHT: Word count distribution (x=340..670) ── -->
+  <text x="505" y="58" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#8b949e">WORD COUNT DISTRIBUTION</text>
 
-  <!-- Bar chart: bins approximated from min=25, max=112, mean=48 -->
-  <!-- Bins: 25-40, 40-55, 55-70, 70-85, 85-112 -->
-  <!-- Approx counts (from data): ~30, ~90, ~45, ~20, ~8 = 193 total -->
-  <!-- Heights normalized to 80px max -->
-  <!-- Scale: 90 → 80px, so ratio = 80/90 = 0.889 -->
+  <!-- Chart area: x=345..665, y=68..165 (height=97) -->
+  <line x1="345" y1="165" x2="665" y2="165" stroke="#30363d" stroke-width="1"/>
+  <line x1="345" y1="68"  x2="665" y2="68"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="345" y1="165" x2="345" y2="68"  stroke="#30363d" stroke-width="1"/>
 
-  <line x1="380" y1="155" x2="650" y2="155" stroke="#30363d" stroke-width="1"/>
-  <line x1="380" y1="75"  x2="650" y2="75"  stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="380" y1="75" x2="380" y2="155" stroke="#30363d" stroke-width="1"/>
+  <!-- Bins: 5 bins, each 56px wide with 8px gap across 320px → slot=64px, bar=52px -->
+  <!-- bar x positions: 345+6=351, 415+6=421, 479+6=485, 543+6=549, 607+6=613 -->
+  <!-- counts: ~25(h=27), ~95(h=97 cap), ~48(h=52), ~17(h=18), ~8(h=9) -->
+  <!-- h = count/95 * 97 -->
 
-  <!-- Bin bars: each 40px wide with 6px gap -->
-  <!-- bin1: 25-40, count~25, h=22, y=133 -->
-  <rect x="386" y="133" width="38" height="22" rx="2" fill="#58a6ff" opacity="0.7"/>
-  <!-- bin2: 40-55, count~95, h=84 capped=80, y=75 — most common range (mean=48) -->
-  <rect x="430" y="75" width="38" height="80" rx="2" fill="#58a6ff" opacity="0.9"/>
-  <!-- bin3: 55-70, count~48, h=43, y=112 -->
-  <rect x="474" y="112" width="38" height="43" rx="2" fill="#58a6ff" opacity="0.7"/>
-  <!-- bin4: 70-85, count~17, h=15, y=140 -->
-  <rect x="518" y="140" width="38" height="15" rx="2" fill="#58a6ff" opacity="0.6"/>
-  <!-- bin5: 85-112, count~8, h=7, y=148 -->
-  <rect x="562" y="148" width="38" height="7" rx="2" fill="#58a6ff" opacity="0.5"/>
+  <!-- bin1: 25-40, count~25, h=26, y=139 -->
+  <rect x="351" y="139" width="52" height="26" rx="3" fill="#58a6ff" opacity="0.65"/>
+  <!-- bin2: 40-55, count~95, h=97(full), y=68 — PEAK -->
+  <rect x="415" y="68"  width="52" height="97" rx="3" fill="#58a6ff" opacity="0.9"/>
+  <!-- bin3: 55-70, count~48, h=49, y=116 -->
+  <rect x="479" y="116" width="52" height="49" rx="3" fill="#58a6ff" opacity="0.75"/>
+  <!-- bin4: 70-85, count~17, h=17, y=148 -->
+  <rect x="543" y="148" width="52" height="17" rx="3" fill="#58a6ff" opacity="0.6"/>
+  <!-- bin5: 85+, count~8, h=8, y=157 -->
+  <rect x="607" y="157" width="52" height="8" rx="3" fill="#58a6ff" opacity="0.5"/>
+
+  <!-- Peak annotation -->
+  <text x="441" y="63" text-anchor="middle" class="mono" font-size="8" fill="#e3b341">peak (~95)</text>
 
   <!-- X axis labels -->
-  <text x="405" y="166" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">25-40</text>
-  <text x="449" y="166" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">40-55</text>
-  <text x="493" y="166" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">55-70</text>
-  <text x="537" y="166" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">70-85</text>
-  <text x="581" y="166" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">85+</text>
-  <text x="515" y="178" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Word count per trace</text>
+  <text x="377" y="178" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">25–40</text>
+  <text x="441" y="178" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">40–55</text>
+  <text x="505" y="178" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">55–70</text>
+  <text x="569" y="178" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">70–85</text>
+  <text x="633" y="178" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">85+</text>
+  <text x="505" y="192" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Word count per trace</text>
 
-  <!-- Stats annotation -->
-  <text x="449" y="71" text-anchor="middle" class="mono" font-size="9" fill="#e3b341">peak</text>
+  <!-- ── Bottom: 4 stat cards (y=205..275, height=70) ── -->
+  <!-- Cards at x=20,185,350,515, each width=155 -->
 
-  <!-- ── BOTTOM: Stats cards ── -->
-  <rect x="20" y="190" width="155" height="55" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-  <text x="97" y="208" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Min word count</text>
-  <text x="97" y="228" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#58a6ff">25</text>
-  <text x="97" y="242" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">words (filter cutoff)</text>
+  <rect x="20"  y="205" width="155" height="70" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="97"  y="223" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Min word count</text>
+  <text x="97"  y="247" text-anchor="middle" class="mono" font-size="18" font-weight="700" fill="#58a6ff">25</text>
+  <text x="97"  y="267" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">filter cutoff</text>
 
-  <rect x="185" y="190" width="155" height="55" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-  <text x="262" y="208" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Mean word count</text>
-  <text x="262" y="228" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#e3b341">48</text>
-  <text x="262" y="242" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">words per trace</text>
+  <rect x="185" y="205" width="155" height="70" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="262" y="223" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Mean word count</text>
+  <text x="262" y="247" text-anchor="middle" class="mono" font-size="18" font-weight="700" fill="#e3b341">48</text>
+  <text x="262" y="267" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">words per trace</text>
 
-  <rect x="350" y="190" width="155" height="55" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-  <text x="427" y="208" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Max word count</text>
-  <text x="427" y="228" text-anchor="middle" class="mono" font-size="16" font-weight="700" fill="#58a6ff">112</text>
-  <text x="427" y="242" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">words (longest trace)</text>
+  <rect x="350" y="205" width="155" height="70" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="427" y="223" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Max word count</text>
+  <text x="427" y="247" text-anchor="middle" class="mono" font-size="18" font-weight="700" fill="#58a6ff">112</text>
+  <text x="427" y="267" text-anchor="middle" class="mono" font-size="8" fill="#8b949e">longest trace</text>
 
-  <rect x="515" y="190" width="165" height="55" rx="6" fill="#161b22" stroke="#238636" stroke-width="1"/>
-  <text x="597" y="208" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">All traces have</text>
-  <text x="597" y="222" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#3fb950">numeric answers</text>
-  <text x="597" y="236" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">matching "answer is: N"</text>
-  <text x="597" y="248" text-anchor="middle" class="mono" font-size="8" fill="#3fb950">193/193 (100%)</text>
+  <rect x="515" y="205" width="165" height="70" rx="6" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <text x="597" y="223" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">Numeric answer</text>
+  <text x="597" y="237" text-anchor="middle" class="mono" font-size="9" fill="#8b949e">present in all valid</text>
+  <text x="597" y="255" text-anchor="middle" class="mono" font-size="15" font-weight="700" fill="#3fb950">193/193</text>
+  <text x="597" y="270" text-anchor="middle" class="mono" font-size="8" fill="#3fb950">100%</text>
 </svg>
