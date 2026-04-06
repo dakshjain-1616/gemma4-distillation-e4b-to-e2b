@@ -1,7 +1,7 @@
-# GSM8K Math Distillation — qwen/qwen3.6-plus → gemma-4-E2B-it
+# qwen-to-gemma-math — GSM8K Distillation via Chain-of-Thought
 
 [![Built with NEO](https://img.shields.io/badge/Built%20with-NEO%20AI%20Agent-6f42c1?style=for-the-badge)](https://heyneo.so)
-[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-gemma4--distillation--e4b--to--e2b-yellow?style=for-the-badge)](https://huggingface.co/daksh-neo/gemma4-distillation-e4b-to-e2b)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-qwen--to--gemma--math-yellow?style=for-the-badge)](https://huggingface.co/daksh-neo/qwen-to-gemma-math)
 [![NEO VS Code](https://img.shields.io/visual-studio-marketplace/v/NeoResearchInc.heyneo?style=for-the-badge&label=NEO%20VS%20Code)](https://marketplace.visualstudio.com/items?itemName=NeoResearchInc.heyneo)
 
 > This project was autonomously built using **NEO** — Your autonomous AI Agent. [Try NEO →](https://heyneo.so)
@@ -22,7 +22,7 @@
 | Final Train Loss | **19.57** (down from 27.44 at epoch 1) |
 | GSM8K Accuracy | **10%** (2 / 20 correct) |
 | Avg BLEU | **0.329** (range: 0.171 – 0.629) |
-| Model on HF | [daksh-neo/gemma4-distillation-e4b-to-e2b](https://huggingface.co/daksh-neo/gemma4-distillation-e4b-to-e2b) |
+| Model on HF | [daksh-neo/qwen-to-gemma-math](https://huggingface.co/daksh-neo/qwen-to-gemma-math) |
 
 ---
 
@@ -162,7 +162,7 @@ Full fine-tuning with gradient checkpointing is the only viable approach with cu
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-model_id = "daksh-neo/gemma4-distillation-e4b-to-e2b"
+model_id = "daksh-neo/qwen-to-gemma-math"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(
     model_id, torch_dtype=torch.bfloat16, device_map="auto"
